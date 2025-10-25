@@ -3,16 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Handwerksbetrieb für Außenanlagen – Michael Hogen: Pflasterbau, Kellerabdichtung, Terrassen, Gabionen & mehr im Landkreis Trier-Saarburg." />
-  <title>Michael Hogen – Tiefbau & Außenanlagen</title>
+  <meta name="description" content="Michael Hogen – Innovativer Tiefbau & Außenanlagen mit Präzision und Stil im Landkreis Trier-Saarburg." />
+  <title>Michael Hogen | Tiefbau neu gedacht</title>
   <style>
+    /* ===== Moderne, innovative Basis ===== */
     :root {
-      --gray: #f5f5f5;
-      --dark-gray: #4b5563;
-      --brown: #5a4a42;
-      --accent-blue: #2563eb;
-      --white: #ffffff;
-      --light-brown: #d7ccc8;
+      --bg: #faf9f6;
+      --text: #2d2b26;
+      --accent: #2563eb;
+      --accent-light: #dbeafe;
+      --dark: #1e1b18;
+      --stone: #a8a29e;
+      --card-bg: rgba(255, 255, 255, 0.85);
+      --shadow: 0 10px 25px -5px rgba(0,0,0,0.08);
+      --transition: all 0.3s ease;
     }
 
     * {
@@ -22,153 +26,221 @@
     }
 
     body {
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      line-height: 1.6;
-      color: var(--dark-gray);
-      background-color: var(--white);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
     }
 
-    a {
-      color: var(--accent-blue);
-      text-decoration: none;
+    /* ===== Hero-Bereich mit Schrägverlauf ===== */
+    .hero {
+      background: linear-gradient(120deg, #f5f3f0 0%, #e8e6e1 100%);
+      padding: 5rem 0 4rem;
+      position: relative;
+      overflow: hidden;
     }
 
-    a:hover {
-      text-decoration: underline;
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: var(--accent-light);
+      opacity: 0.6;
+      z-index: 0;
     }
 
-    .container {
-      width: 90%;
-      max-width: 1200px;
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
       margin: 0 auto;
-      padding: 0 1rem;
-    }
-
-    header {
-      background-color: var(--brown);
-      color: var(--white);
-      padding: 1.5rem 0;
       text-align: center;
+      padding: 0 1.5rem;
     }
 
-    header h1 {
-      font-size: 1.8rem;
-      font-weight: 700;
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, var(--dark), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
 
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--stone);
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    /* ===== Navigation minimal ===== */
     nav {
-      background-color: var(--dark-gray);
-      padding: 0.75rem 0;
-    }
-
-    nav ul {
-      display: flex;
-      justify-content: center;
-      list-style: none;
-      flex-wrap: wrap;
-      gap: 1.5rem;
+      padding: 1.2rem 0;
+      text-align: center;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
     }
 
     nav a {
-      color: var(--white);
+      color: var(--text);
+      text-decoration: none;
       font-weight: 600;
+      margin: 0 1rem;
+      padding: 0.4rem 0;
+      position: relative;
     }
 
-    nav a:hover {
-      text-decoration: underline;
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: var(--transition);
+      transform: translateX(-50%);
     }
 
+    nav a:hover::after {
+      width: 80%;
+    }
+
+    /* ===== Section-Layout ===== */
     section {
-      padding: 3rem 0;
+      padding: 5rem 1.5rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     h2 {
-      font-size: 1.75rem;
-      margin-bottom: 1.5rem;
-      color: var(--brown);
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 3rem;
+      text-align: center;
+      position: relative;
     }
 
-    h3 {
-      font-size: 1.25rem;
-      margin: 1.25rem 0 0.75rem;
-      color: var(--dark-gray);
+    h2::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: var(--accent);
+      margin: 0.75rem auto 0;
+      border-radius: 2px;
     }
 
-    p {
-      margin-bottom: 1rem;
-    }
-
+    /* ===== Services – Card mit Hover & Icon ===== */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
-      margin-top: 1.5rem;
     }
 
     .service-card {
-      background: var(--gray);
-      border-radius: 8px;
-      padding: 1.5rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      background: var(--card-bg);
+      backdrop-filter: blur(6px);
+      border-radius: 16px;
+      padding: 2rem;
       text-align: center;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      border: 1px solid rgba(0,0,0,0.03);
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 30px -10px rgba(0,0,0,0.12);
     }
 
     .service-icon {
-      width: 80px;
-      height: 80px;
-      background-color: var(--white);
-      border: 2px solid var(--light-brown);
-      border-radius: 50%;
+      width: 72px;
+      height: 72px;
+      background: linear-gradient(135deg, var(--accent), #1d4ed8);
+      border-radius: 18px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 1rem;
+      margin: 0 auto 1.5rem;
+      color: white;
       font-size: 2rem;
-      color: var(--brown);
+      box-shadow: 0 6px 12px rgba(37, 99, 235, 0.3);
     }
 
-    .workflow-steps {
+    .service-card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+
+    /* ===== Workflow – Timeline-Stil ===== */
+    .workflow {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
-      margin-top: 1.5rem;
+      gap: 2.5rem;
+      max-width: 800px;
+      margin: 0 auto;
     }
 
     .step {
       display: flex;
-      gap: 1rem;
+      gap: 1.5rem;
+      align-items: flex-start;
     }
 
     .step-number {
       flex-shrink: 0;
-      width: 32px;
-      height: 32px;
-      background: var(--accent-blue);
+      width: 48px;
+      height: 48px;
+      background: var(--accent);
       color: white;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: bold;
+      font-size: 1.2rem;
       margin-top: 0.25rem;
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
     }
 
-    .why-us-grid {
+    /* ===== Warum uns – Badge-Stil ===== */
+    .why-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 2rem;
-      margin-top: 1.5rem;
     }
 
-    .trust-signal {
-      background: var(--gray);
-      padding: 1.25rem;
-      border-radius: 8px;
+    .trust-badge {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
       text-align: center;
+      box-shadow: var(--shadow);
+      border-top: 4px solid var(--accent);
     }
 
+    .trust-badge h3 {
+      font-size: 1.4rem;
+      margin: 1rem 0;
+      color: var(--dark);
+    }
+
+    /* ===== Kontakt – Button mit Glanz ===== */
     .contact-section {
-      background-color: var(--gray);
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
       text-align: center;
     }
 
@@ -177,171 +249,197 @@
       justify-content: center;
       gap: 1.5rem;
       flex-wrap: wrap;
-      margin-top: 1.5rem;
+      margin-top: 2rem;
     }
 
     .btn {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      background: var(--accent-blue);
-      color: white;
-      border-radius: 6px;
-      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 2rem;
+      background: white;
+      color: var(--accent);
+      font-weight: 700;
+      border-radius: 12px;
       text-decoration: none;
-      transition: background 0.2s;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      border: 2px solid transparent;
     }
 
     .btn:hover {
-      background: #1d4ed8;
-      text-decoration: none;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 20px -6px rgba(37, 99, 235, 0.3);
+      border-color: var(--accent);
     }
 
-    footer {
-      background: var(--dark-gray);
+    .btn-primary {
+      background: var(--accent);
       color: white;
-      padding: 2rem 0 1rem;
-      font-size: 0.9rem;
     }
 
-    .imprint {
-      margin-bottom: 1.25rem;
+    .btn-primary:hover {
+      background: #1d4ed8;
+      border-color: white;
+    }
+
+    /* ===== Footer – Clean & modern ===== */
+    footer {
+      background: var(--dark);
+      color: white;
+      padding: 3rem 1.5rem 2rem;
+      font-size: 0.95rem;
+    }
+
+    .footer-content {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
     }
 
     .imprint p {
-      margin-bottom: 0.5rem;
+      margin: 0.5rem 0;
+    }
+
+    .imprint a {
+      color: #93c5fd;
     }
 
     .privacy-notice {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
       border-top: 1px solid rgba(255,255,255,0.1);
-      padding-top: 1rem;
       color: #cbd5e1;
     }
 
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 1.5rem;
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.2rem;
       }
-
       h2 {
-        font-size: 1.5rem;
+        font-size: 1.9rem;
       }
-
-      nav ul {
-        gap: 1rem;
+      .btn {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
       }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="container">
-      <h1>Handwerksbetrieb für Außenanlagen – Michael Hogen</h1>
-      <p>Zuverlässiger Tiefbau im Landkreis Trier-Saarburg</p>
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Handwerk mit Vision</h1>
+      <p>Michael Hogen – Ihr Partner für präzisen Tiefbau und außergewöhnliche Außenanlagen im Herzen der Region Trier.</p>
     </div>
-  </header>
+  </div>
 
   <nav>
-    <div class="container">
-      <ul>
-        <li><a href="#leistungen">Leistungen</a></li>
-        <li><a href="#ablauf">Ablauf</a></li>
-        <li><a href="#warum">Warum uns?</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
-      </ul>
-    </div>
+    <a href="#leistungen">Leistungen</a>
+    <a href="#ablauf">Ablauf</a>
+    <a href="#warum">Warum wir?</a>
+    <a href="#kontakt">Kontakt</a>
   </nav>
 
   <main>
-    <section id="leistungen" class="container">
-      <h2>Unsere Leistungen</h2>
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">🧱</div>
-          <h3>Pflasterbau</h3>
-          <p>Robuste und ästhetische Pflasterflächen für Wege, Einfahrten und Plätze – langlebig und witterungsbeständig.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">💧</div>
-          <h3>Kellerabdichtung</h3>
-          <p>Schützen Sie Ihr Gebäude vor Feuchtigkeit – mit professioneller Innen- oder Außenabdichtung nach aktuellem Stand der Technik.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🚰</div>
-          <h3>Kanalrohrverlegung</h3>
-          <p>Zuverlässige Verlegung von Abwasser- und Regenwasserleitungen – inklusive Planung und Genehmigungsunterstützung.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🪜</div>
-          <h3>Treppen & Mauern</h3>
-          <p>Stabile und formschöne Treppen sowie Stützmauern aus Natur- oder Betonstein – passend zum Gelände und Ihrem Geschmack.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">📦</div>
-          <h3>Gabionen</h3>
-          <p>Modern, langlebig und pflegeleicht: Gabionen als Sichtschutz, Hangsicherung oder Gestaltungselement im Garten.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon">🪨</div>
-          <h3>Terrassen aus Stein</h3>
-          <p>Elegante Steinterrassen, die Ihren Außenbereich aufwerten – individuell geplant und fachgerecht verlegt.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="ablauf" class="container">
-      <h2>So läuft die Zusammenarbeit</h2>
-      <div class="workflow-steps">
-        <div class="step">
-          <div class="step-number">1</div>
-          <div><strong>Kontakt & Beratung</strong> – Rufen Sie an oder schreiben Sie eine E-Mail. Wir besprechen Ihre Wünsche und das Projekt.</div>
-        </div>
-        <div class="step">
-          <div class="step-number">2</div>
-          <div><strong>Vor-Ort-Termin</strong> – Wir kommen zu Ihnen, nehmen Maß und besprechen Details direkt am Objekt.</div>
-        </div>
-        <div class="step">
-          <div class="step-number">3</div>
-          <div><strong>Faires Angebot</strong> – Sie erhalten ein transparentes, detailliertes Angebot – ohne versteckte Kosten.</div>
-        </div>
-        <div class="step">
-          <div class="step-number">4</div>
-          <div><strong>Ausführung</strong> – Pünktlich, sauber und handwerklich einwandfrei – mit regelmäßiger Abstimmung.</div>
-        </div>
-        <div class="step">
-          <div class="step-number">5</div>
-          <div><strong>Fertigstellung & Übergabe</strong> – Alles wird gründlich gereinigt, erklärt und übergeben – zufrieden oder wir machen es besser.</div>
+    <section id="leistungen">
+      <div class="container">
+        <h2>Unsere Leistungen</h2>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">🧱</div>
+            <h3>Pflasterbau</h3>
+            <p>Maßgeschneiderte Pflasterlösungen – langlebig, wasserdurchlässig und ästhetisch bis ins Detail.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">💧</div>
+            <h3>Kellerabdichtung</h3>
+            <p>Permanenter Schutz vor Feuchtigkeit – mit modernsten Systemen und langjähriger Garantie.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🚰</div>
+            <h3>Kanalrohrverlegung</h3>
+            <p>Von der Planung bis zur Abnahme: sichere und genehmigungsfähige Leitungssysteme.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🪜</div>
+            <h3>Treppen & Mauern</h3>
+            <p>Stabil, formschön und perfekt ins Gelände integriert – aus Naturstein oder Beton.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">📦</div>
+            <h3>Gabionen</h3>
+            <p>Design trifft Funktion: moderne Gabionen als Gestaltungselement und Stützkonstruktion.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🪨</div>
+            <h3>Stein-Terrassen</h3>
+            <p>Ihre persönliche Wohlfühloase – aus edlen Natursteinen, handwerklich perfekt verlegt.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="warum" class="container">
-      <h2>Warum uns wählen?</h2>
-      <div class="why-us-grid">
-        <div class="trust-signal">
-          <h3>✅ Lokal verwurzelt</h3>
-          <p>Wir arbeiten seit Jahren im Landkreis Trier-Saarburg – kennen die Gegebenheiten und sind schnell vor Ort.</p>
+    <section id="ablauf" style="background:#f9fafb">
+      <div class="container">
+        <h2>Klarer Ablauf. Keine Überraschungen.</h2>
+        <div class="workflow">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div><strong>Kontakt</strong> – Sie rufen an oder schreiben. Wir hören zu.</div>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <div><strong>Vor-Ort-Beratung</strong> – Unverbindlich, transparent, ohne Druck.</div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div><strong>Individuelles Angebot</strong> – detailliert, fair und verständlich.</div>
+          </div>
+          <div class="step">
+            <div class="step-number">4</div>
+            <div><strong>Ausführung</strong> – pünktlich, sauber und mit Respekt vor Ihrem Eigentum.</div>
+          </div>
+          <div class="step">
+            <div class="step-number">5</div>
+            <div><strong>Fertig & zufrieden</strong> – mit Garantie und klarem Gewissen.</div>
+          </div>
         </div>
-        <div class="trust-signal">
-          <h3>✅ Erfahren & zuverlässig</h3>
-          <p>Mehr als 15 Jahre Praxis im Tief- und Außenanlagenbau – mit fundiertem Fachwissen und modernem Equipment.</p>
-        </div>
-        <div class="trust-signal">
-          <h3>✅ Transparent & fair</h3>
-          <p>Keine versteckten Kosten, klare Absprachen und ehrliche Beratung – damit Sie sich sicher fühlen.</p>
+      </div>
+    </section>
+
+    <section id="warum">
+      <div class="container">
+        <h2>Warum Kunden uns vertrauen</h2>
+        <div class="why-grid">
+          <div class="trust-badge">
+            <h3>📍 Lokal verwurzelt</h3>
+            <p>Seit Jahren aktiv im Landkreis Trier-Saarburg – wir kennen jedes Gelände.</p>
+          </div>
+          <div class="trust-badge">
+            <h3>🛠️ Meisterhaft ausgeführt</h3>
+            <p>Mehr als 15 Jahre Erfahrung – mit Fokus auf Qualität, nicht auf Schnelligkeit.</p>
+          </div>
+          <div class="trust-badge">
+            <h3>📊 Transparent & fair</h3>
+            <p>Keine versteckten Kosten. Klare Kommunikation von Anfang an.</p>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="kontakt" class="contact-section">
       <div class="container">
-        <h2>Kontaktieren Sie uns</h2>
-        <p>Haben Sie Fragen oder möchten ein Angebot? Rufen Sie an oder schreiben Sie eine E-Mail – wir melden uns zeitnah!</p>
+        <h2>Fertig für Ihr Projekt?</h2>
+        <p>Wir freuen uns auf Ihre Anfrage – per Telefon oder E-Mail.</p>
         <div class="contact-buttons">
-          <a href="tel:+4965029385405" class="btn">📞 06502 9385405</a>
+          <a href="tel:+4965029385405" class="btn btn-primary">📞 06502 9385405</a>
           <a href="mailto:tiefbau-michaelhogen@t-online.de" class="btn">✉️ E-Mail schreiben</a>
         </div>
-        <p style="margin-top: 1.5rem; font-size: 0.95rem;">
+        <p style="margin-top: 2rem; color: var(--stone);">
           <strong>Öffnungszeiten:</strong> Montag–Freitag, 7–17 Uhr
         </p>
       </div>
@@ -349,7 +447,7 @@
   </main>
 
   <footer>
-    <div class="container">
+    <div class="footer-content">
       <div class="imprint">
         <p><strong>Handwerksbetrieb für Außenanlagen – Michael Hogen</strong></p>
         <p>Bahnhofstr. 99, 54338 Schweich</p>
@@ -357,15 +455,13 @@
         <p>Telefon: <a href="tel:+4965029385405">06502 9385405</a></p>
       </div>
       <div class="privacy-notice">
-        <p><strong>Datenschutzhinweis:</strong> Ihre Daten werden nur zur Bearbeitung Ihrer Anfrage genutzt und nicht an Dritte weitergegeben. Weitere Informationen erhalten Sie auf Anfrage.</p>
+        <p><strong>Datenschutzhinweis:</strong> Ihre Daten werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet und nicht an Dritte weitergegeben. Weitere Informationen auf Anfrage.</p>
       </div>
     </div>
   </footer>
 
-  <!-- Optional: Tidio Chatbot – füge deinen Public Key hier ein -->
-  <!--
-  <script src="//code.tidio.co/YOUR_PUBLIC_KEY_HERE.js" async></script>
-  -->
+  <!-- Tidio-Platzhalter – bei Bedarf aktivieren -->
+  <!-- <script src="//code.tidio.co/YOUR_KEY.js" async></script> -->
 
 </body>
 </html>
